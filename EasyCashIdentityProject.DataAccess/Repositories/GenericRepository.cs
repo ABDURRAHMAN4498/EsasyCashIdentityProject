@@ -10,9 +10,9 @@ namespace EasyCashIdentityProject.DataAccess.Repositories
 {
     public class GenericRepository<T> : IGenericDal<T> where T : class
     {
-        public async void Delete(T t)
+        public void Delete(T t)
         {
-            var context = new Context();
+           using var context = new Context();
             context.Set<T>().Remove(t);
             context.SaveChanges();
 
@@ -32,12 +32,16 @@ namespace EasyCashIdentityProject.DataAccess.Repositories
 
         public void Insert(T t)
         {
-            throw new NotImplementedException();
+            var context = new Context();
+            context.Set<T>().Add(t);
+            context.SaveChanges();
         }
 
         public void Update(T t)
         {
-            throw new NotImplementedException();
+            var context = new Context();
+            context.Set<T>().Update(t);
+            context.SaveChanges();
         }
     }
 }
