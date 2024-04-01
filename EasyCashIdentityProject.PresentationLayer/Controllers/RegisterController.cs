@@ -1,5 +1,6 @@
 ﻿using EasyCashIdentityProject.DtoLayer.Dtos.AppUserDtos;
 using EasyCashIdentityProject.EntityLayer.Concrete;
+using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MimeKit;
@@ -53,7 +54,13 @@ namespace EasyCashIdentityProject.PresentationLayer.Controllers
                     mimeMessage.Body = bodybuilder.ToMessageBody();
                     mimeMessage.Subject = "Easy Cash Onay kodu";
 
+                    SmtpClient cleint = new SmtpClient();
+                    cleint.Connect("smtp.gmail.com", 587, false);
+                    cleint.Authenticate("azazfree1515@gmail.com", "hyylvzgiqkaoetjk");
+                    cleint.Send(mimeMessage);
+                    cleint.Disconnect(true);
 
+                    TempData["Mail"] = appUserRegisterDto.Email;
                     return RedirectToAction("Index", "ConfirmMail");
                 }
                 else

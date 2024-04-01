@@ -1,0 +1,21 @@
+﻿@model ConfirmMailViewModel
+@{
+    Layout = null;
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+
+<div class="container">
+    <br /><br />
+    <form method="post">
+        <h2>taşınan mail addresi : @ViewBag.v</h2>
+        <br />
+        <label>kullanıcı ID Değeri</label>
+        <input type="text" class="form-control col-auto" value="@ViewBag.v" />
+        <br />
+        <label>Mail addrisinize gelen 6 haneli kodu giriniz </label>
+        <input type="text" class="form-control col-auto" asp-for="ConfirmCode" />
+        <br />
+        <button class="btn btn-primary">hesapı aktifleştir</button>
+    </form>
+</div>
