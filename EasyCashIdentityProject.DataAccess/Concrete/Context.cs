@@ -13,7 +13,7 @@ namespace EasyCashIdentityProject.DataAccess.Concrete
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=DESKTOP-90P1V0P;Initial Catalog=EasyCashIdentityProject;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
+            optionsBuilder.UseSqlServer("Data Source=LAPTOP-4UIQKUHS;Initial Catalog=EasyCashIdentityProject;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
         }
 
         public DbSet<CustomerAccount> CustomerAccounts { get; set; }
