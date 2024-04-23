@@ -2,7 +2,7 @@
 using EasyCashIdentityProject.EntityLayer.Concrete;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using MimeKit;
+//using MimeKit;
 
 namespace EasyCashIdentityProject.PresentationLayer.Controllers
 {
@@ -42,16 +42,16 @@ namespace EasyCashIdentityProject.PresentationLayer.Controllers
                 var result =await _userManager.CreateAsync(appUser, appUserRegisterDto.Password);
                 if (result.Succeeded)
                 {
-                    MimeMessage mimeMessage = new MimeMessage();
-                    MailboxAddress mailBoxAddressFrom =new MailboxAddress ("Easy Cash", "azazfree1515@gmail.com");
-                    MailboxAddress mailboxAddressTo = new MailboxAddress("User", appUser.Email);
-                    mimeMessage.From.Add(mailBoxAddressFrom);
-                    mimeMessage.To.Add(mailboxAddressTo);
+                    //MimeMessage mimeMessage = new MimeMessage();
+                    //MailboxAddress mailBoxAddressFrom =new MailboxAddress ("Easy Cash", "azazfree1515@gmail.com");
+                    //MailboxAddress mailboxAddressTo = new MailboxAddress("User", appUser.Email);
+                    //mimeMessage.From.Add(mailBoxAddressFrom);
+                    //mimeMessage.To.Add(mailboxAddressTo);
 
-                    var bodybuilder = new BodyBuilder();
-                    bodybuilder.TextBody = "kayıt işlemini gerçekleştirmek için onay kodunuza giriniz: " + code;
-                    mimeMessage.Body = bodybuilder.ToMessageBody();
-                    mimeMessage.Subject = "Easy Cash Onay kodu";
+                    //var bodybuilder = new BodyBuilder();
+                    //bodybuilder.TextBody = "kayıt işlemini gerçekleştirmek için onay kodunuza giriniz: " + code;
+                    //mimeMessage.Body = bodybuilder.ToMessageBody();
+                    //mimeMessage.Subject = "Easy Cash Onay kodu";
 
 
                     return RedirectToAction("Index", "ConfirmMail");
