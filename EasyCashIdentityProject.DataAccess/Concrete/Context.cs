@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace EasyCashIdentityProject.DataAccess.Concrete
 {
-    public class Context : IdentityDbContext<AppUser,AppRole,int>
+    public class Context : IdentityDbContext<AppUser, AppRole, int>
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -20,7 +20,15 @@ namespace EasyCashIdentityProject.DataAccess.Concrete
         }
 
         public DbSet<CustomerAccount> CustomerAccounts { get; set; }
-        public DbSet<CustomerAccountProcess>CustomerAccountProcesses { get; set; }
+        public DbSet<CustomerAccountProcess> CustomerAccountProcesses { get; set; }
+        protected override void onModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<CustomerAccountProcess>()
+                .HasOne(x => x.SenderCustomer)
+                .WithMany(y=>y.Customer)
+                .HasForeignKey()
+                .OnDelete(DeleteBehavior.ClientSetNull);
+        }
 
     }
 }

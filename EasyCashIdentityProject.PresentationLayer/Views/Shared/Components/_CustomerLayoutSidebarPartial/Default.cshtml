@@ -1,5 +1,4 @@
-﻿
-<div class="col-md-3 left_col">
+﻿<div class="col-md-3 left_col">
     <div class="left_col scroll-view">
         <div class="navbar nav_title" style="border: 0;">
             <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Easy Cash</span></a>
@@ -13,7 +12,7 @@
                 <img src="~/gentela-gh-pages/production/images/img.jpg" alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
-                <span>Hoş Geldiniz</span>
+                <span>Hoş Geldiniz,</span>
                 <h2>Müşteri X</h2>
             </div>
         </div>
@@ -30,13 +29,14 @@
                         <a><i class="fa fa-home"></i> Ana Sayfa <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="index.html">Dashboard</a></li>
+                           
                         </ul>
                     </li>
                     <li>
                         <a><i class="fa fa-edit"></i> Hesap İşlemleri <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="/SendMoney/Index/">Para Transferi</a></li>
-                            <li><a href="/MyLastProcess/Index/">Son İşlemlerim</a></li>
+                            <li><a href="form.html">Para Transferleri</a></li>
+                            <li><a href="form_advanced.html">Son İşlemlerim</a></li>
                             <li><a href="form_validation.html">QR ile Para Gönder</a></li>
                             <li><a href="form_wizards.html">Iban Bilgisi Paylaş</a></li>
                             <li><a href="form_upload.html">Hesaplarım Arası Transfer</a></li>
@@ -53,16 +53,7 @@
                             <li><a href="glyphicons.html">Altın Hesaplarım</a></li>
                             <li><a href="widgets.html">Kredi Hesaplarım</a></li>
                             <li><a href="invoice.html">Dolar Hesaplarım</a></li>
-                            <li><a href="inbox.html">Euro Hesaplarım</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a><i class="fa fa-car"></i> Para Transferleri <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a asp-controller="SendMoney" asp-action="Index" asp-route-mycurrency="TL">TL Transfer</a></li>
-                            <li><a asp-controller="SendMoney" asp-action="Index" asp-route-mycurrency="USD">Dolar Transfer</a></li>
-                            <li><a asp-controller="SendMoney" asp-action="Index" asp-route-mycurrency="EUR">Euro Transfer</a></li>
-                            <li><a asp-controller="SendMoney" asp-action="Index" asp-route-mycurrency="Other">Diğer Transferler</a></li>
+                            <li><a href="inbox.html">Euro Hesaplalrım</a></li>
                         </ul>
                     </li>
                     <li>
@@ -73,27 +64,30 @@
                             <li><a href="tables_dynamic.html">Trafik Ödemeleri</a></li>
                             <li><a href="tables_dynamic.html">Sınav Ödemeleri</a></li>
                             <li><a href="tables_dynamic.html">Sigorta Ödemeleri</a></li>
-                            <li><a href="tables_dynamic.html">Diğer Ödemeler</a></li>
+                            <li><a href="tables_dynamic.html">Diğer Ödemeleri</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a><i class="fa fa-bar-chart-o"></i> Döviz ve Altın <span class="fa fa-chevron-down"></span></a>
+                        <a><i class="fa fa-bar-chart-o"></i>Döviz ve Altın<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="chartjs.html">Döviz Kurları</a></li>
+                            <li><a href="chartjs.html">Döviz kurları</a></li>
                             <li><a href="chartjs2.html">Döviz İşlemleri</a></li>
                             <li><a href="morisjs.html">Altın İşlemleri</a></li>
+                            <li><a href="echarts.html">ECharts</a></li>
+                            <li><a href="other_charts.html">Other Charts</a></li>
                         </ul>
                     </li>
                     <li>
                         <a><i class="fa fa-clone"></i>Krediler <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="fixed_sidebar.html">Kredi Hesaplarım</a></li>
-                            <li><a href="fixed_footer.html">Kredi Başvurusu</a></li>
+                            <li><a href="fixed_footer.html">Kredi Başvuruları</a></li>
                             <li><a href="fixed_footer.html">Kredi Ödemeleri</a></li>
                         </ul>
                     </li>
                 </ul>
             </div>
+            <hr />
             <div class="menu_section">
                 <h3>Live On</h3>
                 <ul class="nav side-menu">
@@ -102,7 +96,7 @@
                         <ul class="nav child_menu">
                             <li><a href="e_commerce.html">Kredi Kartlarım</a></li>
                             <li><a href="projects.html">Banka Kartlarım</a></li>
-                            <li><a href="project_detail.html">Sanal Kartlarım</a></li>
+                            <li><a href="project_detail.html">Sanal Karıtlarım</a></li>
                         </ul>
                     </li>
                     <li>
@@ -114,7 +108,7 @@
                         </ul>
                     </li>
 
-                    <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Çıkış Yap</a></li>
+                    <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Çıkış Yap <span class="label label-success pull-right">Coming Soon</span></a></li>
                 </ul>
             </div>
 
