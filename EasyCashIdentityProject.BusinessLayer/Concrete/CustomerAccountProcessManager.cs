@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace EasyCashIdentityProject.BusinessLayer.Concrete
 {
-    internal class CustomerAccountProcessManager : ICustomerAccountProcessService
+    public class CustomerAccountProcessManager : ICustomerAccountProcessService
     {
         private readonly ICustomerAccountProcessDal _customerAccountProcessDal;
 
