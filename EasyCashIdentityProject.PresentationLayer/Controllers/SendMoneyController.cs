@@ -13,14 +13,19 @@ namespace EasyCashIdentityProject.PresentationLayer.Controllers
         private readonly UserManager<AppUser> _userManager;
         private readonly ICustomerAccountProcessService _customerAccouontProssesService;
 
-        public SendMoneyController(UserManager<AppUser> userManager)
+        
+
+        public SendMoneyController(UserManager<AppUser> userManager, ICustomerAccountProcessService customerAccouontProssesService)
         {
             _userManager = userManager;
+            _customerAccouontProssesService = customerAccouontProssesService;
+
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index(string mycurrency)
         {
+            ViewBag.currency = mycurrency;
             return View();
         }
         [HttpPost]
@@ -31,18 +36,18 @@ namespace EasyCashIdentityProject.PresentationLayer.Controllers
             var reciverAccountNumberID = context.CustomerAccounts.Where(x => x.CustomerAccountNumber ==
             sendMoneyForCustomerAccountProcess.ReceiverAccountNumber).Select(y => y.CustomerAccountID).FirstOrDefault();
 
+            var senderAccountNumberID = context.CustomerAccounts.Where(x => x.AppUserID == user.Id).Where(y => y.CustomerAccountCurrency
+            == "Türk Lirası").Select(z => z.CustomerAccountID).FirstOrDefault();
 
-            //sendMoneyForCustomerAccountProcess.SenderID = user.Id;
-            //sendMoneyForCustomerAccountProcess.ProcessDate = Convert.ToDateTime(DateTime.Now.ToShortDateString());
-            //sendMoneyForCustomerAccountProcess.ProcessType = "Havale";
-            //sendMoneyForCustomerAccountProcess.ReceiverID = reciverAccountNumberID;
+           
 
             var values = new CustomerAccountProcess();
             values.ProcessDate = Convert.ToDateTime(DateTime.Now.ToShortDateString());
-            values.SenderID = 1;
+            values.SenderID = senderAccountNumberID;
             values.ProcessType = "Havale";
             values.ReceiverID = reciverAccountNumberID;
             values.Amount = sendMoneyForCustomerAccountProcess.Amount;
+            values.Description = sendMoneyForCustomerAccountProcess.description;
 
             _customerAccouontProssesService.TInsert(values);
            

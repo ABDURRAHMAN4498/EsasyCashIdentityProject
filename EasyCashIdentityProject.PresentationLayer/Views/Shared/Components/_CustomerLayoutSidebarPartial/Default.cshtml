@@ -35,8 +35,8 @@
                     <li>
                         <a><i class="fa fa-edit"></i> Hesap İşlemleri <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="form.html">Para Transferleri</a></li>
-                            <li><a href="form_advanced.html">Son İşlemlerim</a></li>
+                            <li><a asp-controller="SendMoney" asp-action="Index">Para Transferleri</a></li>
+                            <li><a asp-controller="MyLastProcess" asp-action="Index">Son İşlemlerim</a></li>
                             <li><a href="form_validation.html">QR ile Para Gönder</a></li>
                             <li><a href="form_wizards.html">Iban Bilgisi Paylaş</a></li>
                             <li><a href="form_upload.html">Hesaplarım Arası Transfer</a></li>
@@ -57,8 +57,18 @@
                         </ul>
                     </li>
                     <li>
+                        <a><i class="fa fa-car"></i> Para transferleri <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a asp-controller="SendMoney" asp-action="Index" asp-route-mycurrency="TL">TL Transfer</a></li>
+                            <li><a a asp-controller="SendMoney" asp-action="Index" asp-route-mycurrency="USD">Dolar Transfer</a></li>
+                            <li><a a asp-controller="SendMoney" asp-action="Index" asp-route-mycurrency="EUR">Euro Transfer</a></li>
+                            <li><a a asp-controller="SendMoney" asp-action="Index" asp-route-mycurrency="Other">Diğer Transferler</a></li>
+                        </ul>
+                    </li>
+                    <li>
                         <a><i class="fa fa-table"></i> Ödemeler <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
+                            <li><a href="tables.html">Fatura Ödeme</a></li>
                             <li><a href="tables.html">Fatura Ödeme</a></li>
                             <li><a href="tables_dynamic.html">Eğitim Ödemeleri</a></li>
                             <li><a href="tables_dynamic.html">Trafik Ödemeleri</a></li>
@@ -70,7 +80,7 @@
                     <li>
                         <a><i class="fa fa-bar-chart-o"></i>Döviz ve Altın<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="chartjs.html">Döviz kurları</a></li>
+                            <li><a asp-controller="Exchange" asp-action="Index">Döviz kurları</a></li>
                             <li><a href="chartjs2.html">Döviz İşlemleri</a></li>
                             <li><a href="morisjs.html">Altın İşlemleri</a></li>
                             <li><a href="echarts.html">ECharts</a></li>
