@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace EasyCashIdentityProject.PresentationLayer.Controllers
 {
@@ -25,7 +27,10 @@ namespace EasyCashIdentityProject.PresentationLayer.Controllers
             {
                 response.EnsureSuccessStatusCode();
                 var body = await response.Content.ReadAsStringAsync();
-                ViewBag.UsdToTry = body;
+                body.Replace('.', ',');
+                double usd = Convert.ToDouble(body);
+
+                ViewBag.UsdToTry = usd.ToString("0.00");
             }
             #endregion
 

@@ -46,7 +46,7 @@
                     <li>
                         <a><i class="fa fa-desktop"></i> Hesaplarım <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="general_elements.html">Tüm Hesaplarım</a></li>
+                            <li><a asp-controller="AccountListForCpoy" asp-action="Index">Tüm Hesaplarım</a></li>
                             <li><a href="media_gallery.html">Yeni Hesap Aç</a></li>
                             <li><a href="typography.html">Vadesiz Hesaplarım</a></li>
                             <li><a href="icons.html">Vadeli Hesaplarım</a></li>
@@ -68,8 +68,7 @@
                     <li>
                         <a><i class="fa fa-table"></i> Ödemeler <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="tables.html">Fatura Ödeme</a></li>
-                            <li><a href="tables.html">Fatura Ödeme</a></li>
+                            <li><a asp-controller="ElectricBill" asp-action="Index">Fatura Ödeme</a></li>
                             <li><a href="tables_dynamic.html">Eğitim Ödemeleri</a></li>
                             <li><a href="tables_dynamic.html">Trafik Ödemeleri</a></li>
                             <li><a href="tables_dynamic.html">Sınav Ödemeleri</a></li>
@@ -112,7 +111,7 @@
                     <li>
                         <a><i class="fa fa-windows"></i> Ayarlar <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="page_403.html">Şifre Değiştir</a></li>
+                            <li><a asp-controller="MyAccounts" asp-action="Index" >Şifre Değiştir</a></li>
                             <li><a href="page_404.html">Profil Bilgileri</a></li>
                             <li><a href="page_500.html">İletişim Bilgileri</a></li>
                         </ul>

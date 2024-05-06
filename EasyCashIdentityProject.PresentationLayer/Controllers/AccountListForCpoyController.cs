@@ -1,14 +1,32 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using EasyCashIdentityProject.BusinessLayer.Abstract;
+using EasyCashIdentityProject.DataAccess.Abstract;
+using EasyCashIdentityProject.DataAccess.Concrete;
+using EasyCashIdentityProject.EntityLayer.Concrete;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EasyCashIdentityProject.PresentationLayer.Controllers
 {
     public class AccountListForCpoyController : Controller
     {
-        // GET: AccountListForCpoyController
-        public ActionResult Index()
+        private readonly UserManager<AppUser> _userManager;
+        private readonly ICustomerAccountService _customerAccountService;
+
+        public AccountListForCpoyController(UserManager<AppUser> userManager, ICustomerAccountService customerAccountService)
         {
-            return View();
+            _userManager = userManager;
+            _customerAccountService = customerAccountService;
+        }
+
+        // GET: AccountListForCpoyController
+        public async Task<ActionResult> Index()
+        {
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            var context = new Context();
+            var values = _customerAccountService.TGetCustomerAccountList(user.Id);
+
+            return View(values);
         }
 
         // GET: AccountListForCpoyController/Details/5

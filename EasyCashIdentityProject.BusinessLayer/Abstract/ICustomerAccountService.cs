@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace EasyCashIdentityProject.BusinessLayer.Abstract
 {
-    internal interface ICustomerAccountService : IGenericService<CustomerAccount>
+    public interface ICustomerAccountService : IGenericService<CustomerAccount>
     {
+        public List<CustomerAccount> TGetCustomerAccountList(int id);
     }
 }

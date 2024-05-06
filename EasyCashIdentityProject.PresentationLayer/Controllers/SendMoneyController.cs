@@ -33,14 +33,16 @@ namespace EasyCashIdentityProject.PresentationLayer.Controllers
         {
             var context = new Context();
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
-            var reciverAccountNumberID = context.CustomerAccounts.Where(x => x.CustomerAccountNumber ==
-            sendMoneyForCustomerAccountProcess.ReceiverAccountNumber).Select(y => y.CustomerAccountID).FirstOrDefault();
+            var reciverAccountNumberID = context.CustomerAccounts
+                .Where(x => x.CustomerAccountNumber == sendMoneyForCustomerAccountProcess.ReceiverAccountNumber)
+                .Select(y => y.CustomerAccountID).FirstOrDefault();
 
-            var senderAccountNumberID = context.CustomerAccounts.Where(x => x.AppUserID == user.Id).Where(y => y.CustomerAccountCurrency
-            == "Türk Lirası").Select(z => z.CustomerAccountID).FirstOrDefault();
-
-           
-
+            var senderAccountNumberID = context.CustomerAccounts
+                .Where(x => x.AppUserID == user.Id)
+                .Where(y => y.CustomerAccountCurrency == "Türk Lirası")
+                .Select(z => z.CustomerAccountID)
+                .FirstOrDefault();
+            
             var values = new CustomerAccountProcess();
             values.ProcessDate = Convert.ToDateTime(DateTime.Now.ToShortDateString());
             values.SenderID = senderAccountNumberID;
@@ -51,7 +53,7 @@ namespace EasyCashIdentityProject.PresentationLayer.Controllers
 
             _customerAccouontProssesService.TInsert(values);
            
-            return RedirectToAction("Index","Deneme");
+            return RedirectToAction("Index","MyLastProcess");
         }
     }
 }
